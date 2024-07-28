@@ -9,6 +9,7 @@ import java.sql.Date;
 public record MemeResponse(
         String nome,
         String descricao,
+        String url,
         Date dataCadastro,
         Long idCategoriaMeme,
         Long idUsuario
@@ -17,6 +18,7 @@ public record MemeResponse(
         return MemeResponse.builder()
                 .nome(m.getNome())
                 .descricao(m.getDescricao())
+                .url(m.getUrl())
                 .dataCadastro(m.getDataCadastro())
                 .idCategoriaMeme(m.getIdCategoriaMeme())
                 .idUsuario(m.getIdUsuario())

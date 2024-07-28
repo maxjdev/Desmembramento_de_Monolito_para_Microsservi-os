@@ -14,6 +14,8 @@ public record MemeRequest(
         String nome,
         @NotBlank
         String descricao,
+        @NotBlank
+        String url,
         @NotNull
         Long idCategoriaMeme,
         @NotNull
@@ -23,6 +25,7 @@ public record MemeRequest(
         return Meme.builder()
                 .nome(m.nome)
                 .descricao(m.descricao)
+                .url(m.url)
                 .dataCadastro(Date.valueOf(LocalDate.now()))
                 .idCategoriaMeme(m.idCategoriaMeme)
                 .idUsuario(m.idUsuario)

@@ -29,6 +29,11 @@ public class MemeController {
         return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
     }
 
+    @GetMapping("/get/meme-do-dia")
+    public ResponseEntity<MemeResponse> memeDoDia() {
+        return ResponseEntity.status(HttpStatus.OK).body(service.memeDoDia());
+    }
+
     @PostMapping("/post")
     public ResponseEntity<MemeResponse> novoMeme(@RequestBody @Valid MemeRequest dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(dto));

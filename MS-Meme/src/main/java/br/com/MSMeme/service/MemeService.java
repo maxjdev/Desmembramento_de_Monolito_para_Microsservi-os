@@ -12,6 +12,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class MemeService {
@@ -45,6 +46,14 @@ public class MemeService {
         var meme = repository.findById(id)
                 .orElseThrow(() -> new MemeNaoEncontradoException("Meme nao encontrado."));
         return MemeResponse.fromResponse(meme);
+    }
+
+    public MemeResponse memeDoDia() {
+        var memes = findAll();
+        if (memes.isEmpty()) {
+            throw new RuntimeException("Não contem memes cadastrados.");
+        }
+        return memes.get(new Random().nextInt(memes.size()));
     }
 
     @Transactional
